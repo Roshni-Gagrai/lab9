@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="box">
+        <input type="text" id="display" disabled>
     <div class="container">
         <div class="column">
             <div>%</div>
@@ -43,5 +44,78 @@
 
     </div>
     </div>
+    <script>
+    const display = document.getElementById('display');
+
+    function appendNumber(num) {
+        if (display.value === '0' && num !== '.') {
+            display.value = num;
+        } else {
+            display.value += num;
+        }
+    }
+
+    function appendOperator(op) {
+        if (op === '=') {
+            calculateResult();
+            return;
+        }
+        if (display.value === '') return;
+        const lastCharIsOperator = /[+\-*/%]$/.test(display.value);
+
+        if (op === '%') {
+            if (!lastCharIsOperator) {
+                try {
+                    const expression = display.value;
+                    const parts = expression.split(/([+\-*/])/);
+                    let lastPart = parts.pop();
+                    if (lastPart === '') lastPart = parts.pop();
+
+                    const numberValue = parseFloat(lastPart);
+                    if (!isNaN(numberValue)) {
+                        const percentValue = numberValue / 100;
+                        display.value = expression.substring(0, expression.lastIndexOf(lastPart)) + percentValue;
+                    }
+                } catch (e) {
+                    alert("Error with percentage calculation");
+                }
+            }
+            return;
+        }
+
+        if (lastCharIsOperator) {
+            display.value = display.value.slice(0, -1) + op;
+        } else {
+            display.value += op;
+        }
+    }
+
+    function clearDisplay() {
+        display.value = '';
+    }
+
+    function deleteLast() {
+        display.value = display.value.slice(0, -1);
+    }
+
+    function calculateResult() {
+        try {
+            let expression = display.value.replace(/x/g, '*');
+
+            if (/[+\-*/%]$/.test(expression)) {
+                expression = expression.slice(0, -1);
+            }
+            if (expression.includes('/0')) {
+                display.value = 'Error';
+                return;
+            }
+            display.value = eval(expression);
+
+        } catch (e) {
+            display.value = 'Error';
+        }
+    }
+</script>
 </body>
 </html>
+

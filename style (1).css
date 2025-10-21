@@ -1,0 +1,51 @@
+body {
+    background-color: black;
+}
+.box {
+    width: 250px;
+    height: 300px;
+    background-color: lightblue;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    margin: 5px 5px 10px 5px;
+    border-radius: 25px;
+    margin-left: 40%;
+    margin-top: 10%;
+}
+.container {
+    width: 250px;
+    height: 280px;
+    background-color: lightblue;
+    padding: 30px;
+    border-radius: 25px;
+    background-color: white;
+    margin-top: 30%;
+    margin-left: -12%;
+    display: inline-grid;
+    column-gap: 10px;
+    grid-template-columns: auto auto auto auto;
+    align-items: left;
+    overflow: hidden;
+}
+.column {
+    width: 40px;
+    height: 330px;
+    margin-left: -40%;
+    margin-top: -40%;
+    padding: 20px;
+    
+}
+.column div {
+    border-bottom: solid 1px black;
+}
+.column div:hover{
+    background-color: blue;
+    color: white;
+}
+.container div {
+    background-color: #f1f1f1;
+    padding: 15px;
+    font-size: 30px;
+    text-align: center; 
+}

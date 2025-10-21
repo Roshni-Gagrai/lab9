@@ -32,7 +32,7 @@ body {
     width: 40px;
     height: 330px;
     margin-left: -40%;
-    margin-top: -40%;
+    margin-top: -43%;
     padding: 20px;
     
 }
@@ -60,4 +60,5 @@ input[type="text"] {
         border-radius: 5px;
         color: black;
     }
+
 

@@ -20,7 +20,7 @@ body {
     padding: 30px;
     border-radius: 25px;
     background-color: white;
-    margin-top: 30%;
+    margin-top: 5px;
     margin-left: -12%;
     display: inline-grid;
     column-gap: 10px;
@@ -60,3 +60,4 @@ input[type="text"] {
         border-radius: 5px;
         color: black;
     }
+
